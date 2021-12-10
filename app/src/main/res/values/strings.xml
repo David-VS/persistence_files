@@ -11,4 +11,12 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="str_btn_input">Read from file</string>
     <string name="str_btn_output">write to file</string>
+    <string name="str_tos">agree to terms of service</string>
+    <string name="str_sorting_options">How do you want to sort your items</string>
+
+    <string-array name="sorting">
+        <item>by date</item>
+        <item>by name</item>
+        <item>by price</item>
+    </string-array>
 </resources>

@@ -7,7 +7,15 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="be.ehb.filesdemo.FirstFragment"
+        android:name="be.ehb.filesdemo.fragments.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first"/>
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_open_preferences"
+            app:destination="@id/prefFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prefFragment"
+        android:name="be.ehb.filesdemo.fragments.PrefFragment"
+        android:label="PrefFragment" />
 </navigation>

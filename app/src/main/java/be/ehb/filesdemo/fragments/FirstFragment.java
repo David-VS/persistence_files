@@ -1,6 +1,7 @@
-package be.ehb.filesdemo;
+package be.ehb.filesdemo.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.preference.PreferenceManager;
 
 import com.squareup.picasso.Picasso;
 
@@ -26,6 +28,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import be.ehb.filesdemo.R;
 import be.ehb.filesdemo.model.OurObject;
 
 public class FirstFragment extends Fragment {
@@ -113,4 +116,17 @@ public class FirstFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //opvragen prefs
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        //pref toevoegen, liever via scherm
+        prefs.edit().putString("pref_sort", "hacked by me").apply();
+        //pref opvragen
+        String sort = prefs.getString("pref_sort", "by date");
+        Toast.makeText(mContext, sort, Toast.LENGTH_LONG).show();
+    }
+
 }
